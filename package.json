@@ -1,24 +1,25 @@
 {
   "name": "multishop-react-vite",
-  "version": "0.0.1",
-  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
+    "dev": "concurrently \"pnpm --filter backend dev\" \"pnpm --filter frontend-lynx dev\" \"pnpm --filter frontend-web dev\"",
+    "build": "concurrently \"pnpm --filter backend build\" \"pnpm --filter frontend-lynx build\" \"pnpm --filter frontend-web build\"",
+    "preview": "concurrently \"pnpm --filter frontend-lynx preview\" \"pnpm --filter frontend-web preview\""
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.4.1",
   "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-router-dom": "^5.2.0",
-    "bootstrap": "^5.1.3",
-    "sass": "^1.43.4"
+    "concurrently": "^9.1.2"
   },
-  "devDependencies": {
-    "typescript": "^4.4.4",
-    "vite": "^2.6.4",
-    "@types/react": "^17.0.33",
-    "@types/react-dom": "^17.0.10",
-    "@types/react-router-dom": "^5.1.9"
+  "workspace": {
+    "packages": [
+      "apps/backend",
+      "apps/frontend-lynx",
+      "apps/frontend-web"
+    ]
   }
 }
